@@ -1,13 +1,9 @@
-extends Sprite
+extends AnimatedSprite
 
-# Sprites
-
-var spriteHero := load("res://app/assets/sprites/player/playerHero.png")
-var spriteVillian := load("res://app/assets/sprites/player/playerVillain.png")
 
 # Base Info
 var speed = 256
-var tileSize = 32
+var tileSize = 64
 var playerTurn := true
 
 # Position Tracking
@@ -37,8 +33,8 @@ func _process(delta):
 		if targetPosition != position:
 			if !playerTurn:
 				playerTurn = true
-				texture = spriteHero
+				play("hero")
 			else:
-				texture = spriteVillian
+				play("villain")
 				$turnDelay.start()
 				playerTurn = false

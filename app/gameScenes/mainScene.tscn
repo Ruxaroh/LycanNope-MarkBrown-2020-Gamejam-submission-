@@ -5,4 +5,7 @@
 [node name="mainScene" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 320 )
+position = Vector2( 589.03, 237.882 )
+animation = "hero"
+frame = 0
+centered = false

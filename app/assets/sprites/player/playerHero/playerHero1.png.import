@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerVillain.png-1bca1bc2043d0af872eff041052a331b.stex"
+path="res://.import/playerHero1.png-816b497cd499a6f0cafca73867b5d259.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://app/assets/sprites/player/playerVillain.png"
-dest_files=[ "res://.import/playerVillain.png-1bca1bc2043d0af872eff041052a331b.stex" ]
+source_file="res://app/assets/sprites/player/playerHero/playerHero1.png"
+dest_files=[ "res://.import/playerHero1.png-816b497cd499a6f0cafca73867b5d259.stex" ]
 
 [params]
 

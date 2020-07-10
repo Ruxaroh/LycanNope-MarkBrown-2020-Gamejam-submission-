@@ -1,0 +1,19 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
+
+[ext_resource path="res://app/assets/sprites/player/playerVillain/playerVillain1.png" type="Texture" id=1]
+[ext_resource path="res://app/assets/sprites/player/playerVillain/playerVillain0.png" type="Texture" id=2]
+[ext_resource path="res://app/assets/sprites/player/playerHero/playerHero0.png" type="Texture" id=3]
+[ext_resource path="res://app/assets/sprites/player/playerHero/playerHero1.png" type="Texture" id=4]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "villain",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "hero",
+"speed": 3.0
+} ]
