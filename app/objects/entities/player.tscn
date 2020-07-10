@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://app/assets/sprites/player/playerHero.png" type="Texture" id=1]
+[ext_resource path="res://app/objects/entities/scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://app/objects/entities/scripts/villianMovement.gd" type="Script" id=3]
+[ext_resource path="res://app/objects/entities/scripts/heroMovement.gd" type="Script" id=4]
+
+[node name="playerSprite" type="Sprite"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="heroMovement" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="villianMovement" type="Node" parent="."]
+script = ExtResource( 3 )
