@@ -2,7 +2,7 @@
 
 [ext_resource path="res://app/assets/sprites/player/playerHero.png" type="Texture" id=1]
 [ext_resource path="res://app/objects/entities/scripts/player.gd" type="Script" id=2]
-[ext_resource path="res://app/objects/entities/scripts/villianMovement.gd" type="Script" id=3]
+[ext_resource path="res://app/objects/entities/scripts/villainMovement.gd" type="Script" id=3]
 [ext_resource path="res://app/objects/entities/scripts/heroMovement.gd" type="Script" id=4]
 
 [node name="playerSprite" type="Sprite"]
@@ -13,5 +13,9 @@ script = ExtResource( 2 )
 [node name="heroMovement" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="villianMovement" type="Node" parent="."]
+[node name="villainMovement" type="Node" parent="."]
 script = ExtResource( 3 )
+
+[node name="turnDelay" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="turnDelay" to="villainMovement" method="_on_turnDelay_timeout"]

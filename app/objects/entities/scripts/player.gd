@@ -1,5 +1,10 @@
 extends Sprite
 
+# Sprites
+
+var spriteHero := load("res://app/assets/sprites/player/playerHero.png")
+var spriteVillian := load("res://app/assets/sprites/player/playerVillain.png")
+
 # Base Info
 var speed = 256
 var tileSize = 32
@@ -26,11 +31,14 @@ func _process(delta):
 		if playerTurn == true:
 			moveDir = $heroMovement.getMoveDir()
 		else:
-			moveDir = $villianMovement.getMoveDir()
+			moveDir = $villainMovement.getMoveDir()
 		lastPosition = position
 		targetPosition += moveDir * tileSize
 		if targetPosition != position:
 			if !playerTurn:
 				playerTurn = true
+				texture = spriteHero
 			else:
+				texture = spriteVillian
+				$turnDelay.start()
 				playerTurn = false
