@@ -5,10 +5,12 @@ signal playerTurnFinished
 var heroTurn := true
 var moveDir = Vector2()
 var grid
+var foundTarget
 var type = 1
 
 var animStart := false
 var animDone := false
+
 
 func _ready():
 	grid = get_parent().get_parent()
@@ -21,7 +23,9 @@ func playerTurn():
 
 func _physics_process(delta):
 	
-	var foundTarget = grid.findNpcInRange(self)
+
+	if !animStart && !animDone:
+		foundTarget = grid.findNpcInRange(self)
 	
 	if foundTarget == null:
 		moveDir = $heroMovement.getMoveDir()

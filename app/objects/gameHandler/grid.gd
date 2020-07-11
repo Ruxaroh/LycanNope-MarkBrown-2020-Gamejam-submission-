@@ -1,6 +1,6 @@
 extends TileMap
 
-# PLAYER = 1 OBSTICLE = 2 COLLECTABLE = 3 NPC = 4
+# PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -49,7 +49,9 @@ func findNpcInRange(child):
 			return(Vector2(1, 0))
 	
 	for x in range(childPos.x, 0, -1):
-		if grid[x][childPos.y] == 4:
+		if grid [x][childPos.y] == 2:
+			break
+		elif grid[x][childPos.y] == 4:
 			return(Vector2(-1, 0))	
 	
 	for y in range(childPos.y, gridSize.y):
