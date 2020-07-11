@@ -34,6 +34,7 @@ func _physics_process(delta):
 			if grid.isCellVacent(position, moveDir):
 				position = grid.updateChildPos(self)
 				set_physics_process(false)
+				$footstepSFX1.play()
 				emit_signal("playerTurnFinished")
 	else:
 		if !animDone && !animStart:
@@ -48,6 +49,7 @@ func _physics_process(delta):
 				#set_physics_process(false)
 
 func transform():
+	$transformSFX.play()
 	$transformParticle.emitting = true
 	$transformDelay.start()
 
