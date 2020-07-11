@@ -5,12 +5,8 @@
 [ext_resource path="res://app/objects/entities/scripts/villainMovement.gd" type="Script" id=3]
 [ext_resource path="res://app/objects/entities/scripts/heroMovement.gd" type="Script" id=4]
 
-[node name="playerSprite" type="AnimatedSprite"]
+[node name="playerSprite" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
-frames = ExtResource( 1 )
-animation = "villain"
-frame = 1
-playing = true
 script = ExtResource( 2 )
 
 [node name="heroMovement" type="Node" parent="."]
@@ -21,4 +17,11 @@ script = ExtResource( 3 )
 
 [node name="turnDelay" type="Timer" parent="."]
 one_shot = true
+
+[node name="playerSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "hero"
+frame = 1
+playing = true
+centered = false
 [connection signal="timeout" from="turnDelay" to="villainMovement" method="_on_turnDelay_timeout"]

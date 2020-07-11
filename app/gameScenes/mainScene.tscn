@@ -1,11 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://app/objects/gameHandler/grid.tscn" type="PackedScene" id=1]
 
 [node name="mainScene" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 589.03, 237.882 )
-animation = "hero"
-frame = 0
-centered = false
+[node name="grid" parent="." instance=ExtResource( 1 )]
