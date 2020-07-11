@@ -14,7 +14,7 @@ func _ready():
 	elif effect == 2:
 		spriteTexture = load("res://app/assets/sprites/tiles/potionGreen.png")
 	elif effect == 3:
-		spriteTexture = load("res://app/assets/sprites/tiles/potionWhite.png")
+		spriteTexture = load("res://app/assets/sprites/tiles/potionGrey.png")
 	else:
 		spriteTexture = load("res://app/assets/sprites/tiles/potionTransparent.png")
 	$Sprite.set_texture(spriteTexture)
