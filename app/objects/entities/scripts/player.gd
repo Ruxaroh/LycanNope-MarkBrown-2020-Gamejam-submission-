@@ -46,7 +46,8 @@ func _physics_process(delta):
 		else:
 			if grid.isCellVacent(position, foundTarget):
 				moveDir = foundTarget
-				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.3,$Tween.TRANS_LINEAR)
+				print("hi")
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
 				$Tween.start()
 				#set_physics_process(false)
 
