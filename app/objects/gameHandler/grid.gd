@@ -4,7 +4,7 @@ extends TileMap
 
 var half_cell_size = cell_size / 2
 var grid = []
-var gridSize = Vector2(16, 16)
+var gridSize = Vector2(20, 11)
 
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
@@ -16,7 +16,8 @@ func _ready():
 		for y in range(gridSize.y):
 			grid[x].append(null)
 	for child in get_children():
-		updateChildPos(child)
+		var childPos = world_to_map(child.position)
+		grid[childPos.x][childPos.y] = child.type
 	
 func isCellVacent(pos, direction):
 	var gridPos = world_to_map(pos) + direction
