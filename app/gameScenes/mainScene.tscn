@@ -6,6 +6,7 @@
 [node name="mainScene" type="Node2D"]
 
 [node name="grid" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1.25995, 0 )
 z_index = 1
 
 [node name="turnController" parent="." instance=ExtResource( 3 )]

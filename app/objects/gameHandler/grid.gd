@@ -27,6 +27,7 @@ func isCellVacent(pos, direction):
 			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_child(1).playerTurn:
 				for child in $actors.get_children():
 					if world_to_map(child.position) == gridPos:
+						$potionPickupSFX.play()
 						collectedPotion = child.effect
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
