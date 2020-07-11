@@ -5,7 +5,7 @@ extends TileMap
 var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
-var collectedPotion
+var collectedPotion = 0
 
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
@@ -26,6 +26,8 @@ func isCellVacent(pos, direction, asker):
 	if isWithinGrid(gridPos):
 		if asker == "player" && grid[gridPos.x][gridPos.y] == 3:
 			collectPotion(gridPos)
+		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
+			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
 			return true
 	return false

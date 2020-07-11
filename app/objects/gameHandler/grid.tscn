@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://app/objects/entities/scripts/pit.gd" type="Script" id=7]
 [ext_resource path="res://app/objects/entities/potion.tscn" type="PackedScene" id=8]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
+[ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
 
 [sub_resource type="TileSet" id=1]
 
@@ -28,6 +29,14 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="grid" type="TileMap"]
 tile_set = SubResource( 1 )
@@ -58,12 +67,20 @@ position = Vector2( 640, 256 )
 npcType = 2
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
-position = Vector2( 64, 64 )
+position = Vector2( 64, 192 )
 z_index = 1
 
 [node name="redPotion" parent="actors" instance=ExtResource( 8 )]
+position = Vector2( 256, 256 )
+effect = 2
+
+[node name="redPotion2" parent="actors" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
 effect = 1
+
+[node name="redPotion3" parent="actors" instance=ExtResource( 8 )]
+position = Vector2( 320, 256 )
+effect = 3
 
 [node name="pit" parent="actors" instance=ExtResource( 5 )]
 position = Vector2( 576, 64 )
@@ -74,7 +91,8 @@ stream = ExtResource( 4 )
 volume_db = -1.0
 pitch_scale = 0.9
 
-[node name="CellHover" type="Sprite" parent="."]
-position = Vector2( 66.5956, 65.4064 )
-texture = ExtResource( 10 )
+[node name="CellHover" type="AnimatedSprite" parent="."]
+position = Vector2( -64, 0 )
+frames = SubResource( 3 )
+playing = true
 centered = false
