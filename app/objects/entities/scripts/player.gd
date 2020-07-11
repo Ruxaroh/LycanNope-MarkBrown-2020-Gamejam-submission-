@@ -1,40 +1,27 @@
-extends AnimatedSprite
+extends KinematicBody2D
 
-
-# Base Info
-var speed = 256
-var tileSize = 64
-var playerTurn := true
-
-# Position Tracking
-var lastPosition = Vector2()
-var targetPosition = Vector2()
+var heroTurn := true
 var moveDir = Vector2()
+var grid
+var type = 1
 
 func _ready():
-	lastPosition = position
-	targetPosition = position
+	grid = get_parent()
+	set_physics_process(true)
 
-func _process(delta):
-		# Player Movment
-	position += speed * moveDir * delta
-
-	# Correction Snap
-	if position.distance_to(lastPosition) >= tileSize:
-		position = targetPosition
+func _physics_process(delta):
+	if heroTurn:
+		moveDir = $heroMovement.getMoveDir()
+	else:
+		moveDir = $villainMovement.getMoveDir()
 	
-	if position == targetPosition:
-		if playerTurn == true:
-			moveDir = $heroMovement.getMoveDir()
-		else:
-			moveDir = $villainMovement.getMoveDir()
-		lastPosition = position
-		targetPosition += moveDir * tileSize
-		if targetPosition != position:
-			if !playerTurn:
-				playerTurn = true
-				play("hero")
-			else:
-				play("villain")
-				$turnDelay.start()
-				playerTurn = false
+	if moveDir != Vector2.ZERO:		
+		if grid.isCellVacent(position, moveDir):
+			position = grid.updateChildPos(self)
+
+func transform():
+	$transformParticle.emitting = true
+	$transformDelay.start()
+
+func _on_transformDelay_timeout():
+	$playerSprite.play("villain")

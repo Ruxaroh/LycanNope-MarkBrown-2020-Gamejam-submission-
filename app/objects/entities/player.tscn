@@ -1,16 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://app/assets/sprites/player/playerFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://app/objects/entities/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://app/objects/entities/scripts/villainMovement.gd" type="Script" id=3]
 [ext_resource path="res://app/objects/entities/scripts/heroMovement.gd" type="Script" id=4]
 
-[node name="playerSprite" type="AnimatedSprite"]
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 1.48
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 8.0
+initial_velocity_random = 0.17
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+color = Color( 0.0470588, 0.701961, 0.717647, 1 )
+anim_offset = 0.26
+
+[node name="playerSprite" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
-frames = ExtResource( 1 )
-animation = "villain"
-frame = 1
-playing = true
 script = ExtResource( 2 )
 
 [node name="heroMovement" type="Node" parent="."]
@@ -19,6 +29,23 @@ script = ExtResource( 4 )
 [node name="villainMovement" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="turnDelay" type="Timer" parent="."]
+[node name="transformDelay" type="Timer" parent="."]
+wait_time = 2.1
 one_shot = true
-[connection signal="timeout" from="turnDelay" to="villainMovement" method="_on_turnDelay_timeout"]
+
+[node name="playerSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "hero"
+playing = true
+centered = false
+
+[node name="transformParticle" type="Particles2D" parent="."]
+position = Vector2( 16, 16 )
+emitting = false
+amount = 10000
+lifetime = 2.8
+one_shot = true
+explosiveness = 0.22
+randomness = 0.4
+process_material = SubResource( 1 )
+[connection signal="timeout" from="transformDelay" to="." method="_on_transformDelay_timeout"]

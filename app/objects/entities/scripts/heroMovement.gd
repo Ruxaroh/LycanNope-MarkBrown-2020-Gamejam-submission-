@@ -1,24 +1,25 @@
 extends Node
 
+# MOVMENT CONSTS
+const TOP = Vector2(0, -1)
+const RIGHT = Vector2(1, 0)
+const DOWN = Vector2(0, 1)
+const LEFT = Vector2(-1, 0)
+
+var moveDir = Vector2()
 
 func getMoveDir():
-	
-	var moveDir = Vector2()
-	
-	# Set movment checks to variables (True = 1)
-	var LEFT = Input.is_action_pressed("ui_left")
-	var RIGHT = Input.is_action_pressed("ui_right")
-	var UP = Input.is_action_pressed("ui_up")
-	var DOWN = Input.is_action_pressed("ui_down")
-	
-	# Sets movedirection, if both pressed = 0
-	moveDir.x = -int(LEFT) + int(RIGHT)
-	moveDir.y = -int(UP) + int(DOWN)
-	
-	# Check to see if two directions are pressed, prevents diagonals
-	if (moveDir.x != 0 && moveDir.y != 0):
+	if Input.is_action_just_pressed("ui_up"):
+		moveDir = TOP
+	elif Input.is_action_just_pressed("ui_right"):
+		moveDir = RIGHT
+	elif Input.is_action_just_pressed("ui_down"):
+		moveDir = DOWN
+	elif Input.is_action_just_pressed("ui_left"):
+		moveDir = LEFT
+	else:
 		moveDir = Vector2.ZERO
-
+		
 	return(moveDir)
 
 func _process(delta):
