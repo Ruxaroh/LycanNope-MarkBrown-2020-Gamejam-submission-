@@ -32,6 +32,8 @@ func isCellVacent(pos, direction):
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
 						break
+			if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
+				return true
 			if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
 				return true
 	return false
