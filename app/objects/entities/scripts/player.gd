@@ -32,8 +32,9 @@ func _physics_process(delta):
 		moveDir = $heroMovement.getMoveDir()
 		if moveDir != Vector2.ZERO:		
 			if grid.isCellVacent(position, moveDir):
-				position = grid.updateChildPos(self)
 				set_physics_process(false)
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.3,$Tween.TRANS_LINEAR)
+				$Tween.start()
 				$footstepSFX1.play()
 				emit_signal("playerTurnFinished")
 	else:
@@ -45,7 +46,8 @@ func _physics_process(delta):
 		else:
 			if grid.isCellVacent(position, foundTarget):
 				moveDir = foundTarget
-				position = grid.updateChildPos(self)
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.3,$Tween.TRANS_LINEAR)
+				$Tween.start()
 				#set_physics_process(false)
 
 func transform():
