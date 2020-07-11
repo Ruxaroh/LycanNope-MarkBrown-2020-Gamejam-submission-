@@ -52,13 +52,21 @@ func _physics_process(delta):
 				#set_physics_process(false)
 
 func transform():
-	$transformSFX.play()
-	$transformParticle.emitting = true
-	$transformDelay.start()
+		$transformSFX.play()
+		$transformParticle.emitting = true
+		$transformDelay.start()
+
 
 func _on_transformDelay_timeout():
-	if $playerSprite.animation == "hero":
+	if $playerSprite.animation == "hero" && !animDone:
 		$playerSprite.play("villain")
 		$transformDelay2.start()
-	else:
+	elif $playerSprite.animation == "villain" && animDone:
+		$playerSprite.play("hero")
+		$transformDelay2.start()
+
+func _on_transformDelay2_timeout():
+	if !animDone:
 		animDone = true
+	else:
+		animDone = false

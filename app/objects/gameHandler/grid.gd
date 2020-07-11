@@ -1,6 +1,6 @@
 extends TileMap
 
-#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -26,6 +26,12 @@ func isCellVacent(pos, direction, asker):
 	if isWithinGrid(gridPos):
 		if asker == "player" && grid[gridPos.x][gridPos.y] == 3:
 			collectPotion(gridPos)
+		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 6:
+			for child in $actors.get_children():
+				if world_to_map(child.position) == gridPos && child.type == 6:
+					child.smash()
+			return(true)
+			return(true)
 		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
 			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
