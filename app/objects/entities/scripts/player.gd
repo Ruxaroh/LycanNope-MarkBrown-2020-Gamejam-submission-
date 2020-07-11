@@ -8,6 +8,7 @@ var grid
 var foundTarget
 var type = 1
 
+
 var animStart := false
 var animDone := false
 

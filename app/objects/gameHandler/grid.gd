@@ -24,6 +24,13 @@ func isCellVacent(pos, direction):
 	var gridPos = world_to_map(pos) + direction
 	if gridPos.x < gridSize.x && gridPos.x >= 0:
 		if gridPos.y < gridSize.y && gridPos.y >= 0:
+			if grid[gridPos.x][gridPos.y] == 3:
+				for child in $actors.get_children():
+					if world_to_map(child.position) == gridPos:
+						# SET POTION VALUE HERE!!!!!
+						grid[gridPos.x][gridPos.y] = null
+						child.queue_free()
+						break
 			if grid[gridPos.x][gridPos.y] == null:
 				return true
 	return false

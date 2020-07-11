@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://app/objects/entities/npcs/npcGreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://app/objects/entities/wallMarker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://app/objects/entities/potion.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 
@@ -25,14 +26,18 @@ position = Vector2( 320, 64 )
 z_index = 1
 
 [node name="npcRed" parent="actors" instance=ExtResource( 4 )]
-position = Vector2( 128, 256 )
+position = Vector2( 512, 320 )
 z_index = 1
 
 [node name="npcGreen" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 320, 256 )
+position = Vector2( 384, 448 )
 z_index = 1
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
 z_index = 1
 
 [node name="wallMarker" parent="actors" instance=ExtResource( 7 )]
+
+[node name="redPotion" parent="actors" instance=ExtResource( 8 )]
+position = Vector2( 64, 0 )
+effect = 1
