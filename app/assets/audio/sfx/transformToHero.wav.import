@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/transformToHero.wav-fb4acb872712d4dc11606e19ef11ffa8.sample"
+
+[deps]
+
+source_file="res://app/assets/audio/sfx/transformToHero.wav"
+dest_files=[ "res://.import/transformToHero.wav-fb4acb872712d4dc11606e19ef11ffa8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
