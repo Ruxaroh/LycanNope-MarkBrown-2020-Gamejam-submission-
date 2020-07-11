@@ -6,10 +6,11 @@ var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
 
+
 onready var playerScene = load("res://app/objects/entities/player.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
 	for x in range(gridSize.x):
 		grid.append([])
 		for y in range(gridSize.y):
@@ -19,6 +20,7 @@ func _ready():
 		grid[childPos.x][childPos.y] = child.type
 	
 func isCellVacent(pos, direction):
+	#print("hi")
 	var gridPos = world_to_map(pos) + direction
 	if gridPos.x < gridSize.x && gridPos.x >= 0:
 		if gridPos.y < gridSize.y && gridPos.y >= 0:
@@ -35,3 +37,7 @@ func updateChildPos(child):
 	
 	var targetPos = map_to_world(newGridPos)
 	return targetPos
+
+
+			
+	return(Vector2(0,0))

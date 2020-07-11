@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerVillain1.png-78dd75c6cebf199af60978cfee021b2f.stex"
+path="res://.import/VillagerRed1.png-a2d2db06674ba0a2cf9e4a6a2de28712.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://app/assets/sprites/player/playerVillain/playerVillain1.png"
-dest_files=[ "res://.import/playerVillain1.png-78dd75c6cebf199af60978cfee021b2f.stex" ]
+source_file="res://app/assets/sprites/npcs/npcGreen/VillagerRed1.png"
+dest_files=[ "res://.import/VillagerRed1.png-a2d2db06674ba0a2cf9e4a6a2de28712.stex" ]
 
 [params]
 

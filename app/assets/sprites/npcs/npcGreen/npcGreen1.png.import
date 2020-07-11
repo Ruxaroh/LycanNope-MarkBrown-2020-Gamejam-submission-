@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerVillain1.png-78dd75c6cebf199af60978cfee021b2f.stex"
+path="res://.import/npcGreen1.png-f0a23f1e70c60ec8e9013416c8dc7170.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://app/assets/sprites/player/playerVillain/playerVillain1.png"
-dest_files=[ "res://.import/playerVillain1.png-78dd75c6cebf199af60978cfee021b2f.stex" ]
+source_file="res://app/assets/sprites/npcs/npcGreen/npcGreen1.png"
+dest_files=[ "res://.import/npcGreen1.png-f0a23f1e70c60ec8e9013416c8dc7170.stex" ]
 
 [params]
 

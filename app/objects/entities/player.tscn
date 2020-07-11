@@ -20,7 +20,7 @@ color = Color( 0.0470588, 0.701961, 0.717647, 1 )
 anim_offset = 0.26
 
 [node name="player" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 2 )
 
 [node name="heroMovement" type="Node" parent="."]
@@ -36,12 +36,12 @@ one_shot = true
 [node name="playerSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "hero"
-frame = 1
 playing = true
 centered = false
 
 [node name="transformParticle" type="Particles2D" parent="."]
-position = Vector2( 16, 16 )
+position = Vector2( 160, 160 )
+scale = Vector2( 7, 7 )
 emitting = false
 amount = 10000
 lifetime = 2.8
