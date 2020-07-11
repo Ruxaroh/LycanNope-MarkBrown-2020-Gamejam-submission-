@@ -45,20 +45,26 @@ func findNpcInRange(child):
 	var childPos = world_to_map(child.position)
 	
 	for x in range(childPos.x, gridSize.x):
+		if grid[x][childPos.y] == 2:
+			break
 		if grid[x][childPos.y] == 4:
 			return(Vector2(1, 0))
 	
 	for x in range(childPos.x, 0, -1):
-		if grid [x][childPos.y] == 2:
+		if grid[x][childPos.y] == 2:
 			break
 		elif grid[x][childPos.y] == 4:
 			return(Vector2(-1, 0))	
 	
 	for y in range(childPos.y, gridSize.y):
+		if grid[childPos.x][y] == 2:
+			break
 		if grid[childPos.x][y] == 4:
 			return(Vector2(0, 1))	
 	
-	for y in range(childPos.y, 0, -1):	
+	for y in range(childPos.y, 0, -1):
+		if grid[childPos.x][y] == 2:
+			break
 		if grid[childPos.x][y] == 4:
 			return(Vector2(-1, 0))
 

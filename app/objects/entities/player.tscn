@@ -40,6 +40,7 @@ one_shot = true
 [node name="playerSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "hero"
+frame = 1
 playing = true
 centered = false
 
