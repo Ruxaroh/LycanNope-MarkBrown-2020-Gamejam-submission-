@@ -15,6 +15,8 @@ func _ready():
 		grid.append([])
 		for y in range(gridSize.y):
 			grid[x].append(null)
+	for child in get_children():
+		updateChildPos(child)
 	
 func isCellVacent(pos, direction):
 	var gridPos = world_to_map(pos) + direction
