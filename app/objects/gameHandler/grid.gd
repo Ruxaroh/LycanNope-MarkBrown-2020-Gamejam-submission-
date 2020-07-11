@@ -21,17 +21,19 @@ func _ready():
 		grid[childPos.x][childPos.y] = child.type
 	
 func isCellVacent(pos, direction):
+	#print("hi")
 	var gridPos = world_to_map(pos) + direction
 	if gridPos.x < gridSize.x && gridPos.x >= 0:
 		if gridPos.y < gridSize.y && gridPos.y >= 0:
-			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_child(1).playerTurn:
+			if grid[gridPos.x][gridPos.y] == 3:
 				for child in $actors.get_children():
 					if world_to_map(child.position) == gridPos:
-						collectedPotion = child.effect
+						# SET POTION VALUE HERE!!!!!
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
 						break
-			if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
+			print($wallTiles.get_cellv(gridPos))
+			if $wallTiles.get_cellv(gridPos) == -1:
 				return true
 	return false
 
