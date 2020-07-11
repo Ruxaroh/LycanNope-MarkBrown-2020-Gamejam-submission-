@@ -49,7 +49,7 @@ position = Vector2( 512, 192 )
 npcType = -1
 
 [node name="npc2" parent="actors" instance=ExtResource( 3 )]
-position = Vector2( 1088, 128 )
+position = Vector2( 576, 192 )
 npcType = 1
 
 [node name="npc3" parent="actors" instance=ExtResource( 3 )]
@@ -57,15 +57,14 @@ position = Vector2( 640, 192 )
 npcType = 2
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
-position = Vector2( 192, 128 )
+position = Vector2( 64, 64 )
 z_index = 1
 
 [node name="redPotion" parent="actors" instance=ExtResource( 8 )]
-position = Vector2( 192, 256 )
+position = Vector2( 456.221, 329.193 )
 effect = 1
 
 [node name="pit" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 448, 64 )
 script = ExtResource( 7 )
 
 [node name="potionPickupSFX" type="AudioStreamPlayer" parent="."]

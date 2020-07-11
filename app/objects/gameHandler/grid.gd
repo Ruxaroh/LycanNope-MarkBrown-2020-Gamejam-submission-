@@ -20,23 +20,32 @@ func _ready():
 		var childPos = world_to_map(child.position)
 		grid[childPos.x][childPos.y] = child.type
 	
-func isCellVacent(pos, direction):
+
+func isCellVacent(pos, direction, asker):
 	var gridPos = world_to_map(pos) + direction
-	if gridPos.x < gridSize.x && gridPos.x >= 0:
-		if gridPos.y < gridSize.y && gridPos.y >= 0:
-			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_child(1).playerTurn:
-				for child in $actors.get_children():
-					if world_to_map(child.position) == gridPos:
-						$potionPickupSFX.play()
-						collectedPotion = child.effect
-						grid[gridPos.x][gridPos.y] = null
-						child.queue_free()
-						break
-			if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
-				return true
-			if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
-				return true
+	if isWithinGrid(gridPos):
+		if asker == "player" && grid[gridPos.x][gridPos.y] == 3:
+			collectPotion(gridPos)
+		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
+			return true
 	return false
+
+# Checks if gridPos is within the grid boundarys
+func isWithinGrid(gridPos):
+	if gridPos.x < gridSize.x && gridPos.x >= 0 && gridPos.y < gridSize.y && gridPos.y >= 0:
+		return true
+	return false
+
+# Collects potion on gridPos tile
+func collectPotion(gridPos):
+	for child in $actors.get_children():
+		if world_to_map(child.position) == gridPos:
+			$potionPickupSFX.play()
+			collectedPotion = child.effect
+			grid[gridPos.x][gridPos.y] = null
+			child.queue_free()
+			break
+
 
 func updateChildPos(child):
 	var gridPos = world_to_map(child.position)
