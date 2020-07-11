@@ -6,6 +6,8 @@ var type
 var moveDir = Vector2(0, 0)
 export var enemy : bool = false
 
+export var npcType := 0
+
 func _ready():
 	type = 4 # type 4 = npc
 	grid = get_parent().get_parent()
@@ -28,7 +30,19 @@ func move():
 
 # Will be used to assign npc sprite
 func setShirtColour():
-	pass
+	match npcType:
+		0:
+			moveDir = Vector2(0, 0)
+			$npcSprite.play("green")
+			continue
+		1:
+			moveDir = Vector2(0, 1)
+			$npcSprite.play("red")
+			continue
+		2:
+			moveDir = Vector2(1, 0)
+			$npcSprite.play("blue")
+			continue
 
 
 func die():

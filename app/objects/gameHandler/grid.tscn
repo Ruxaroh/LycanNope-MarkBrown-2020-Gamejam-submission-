@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://app/objects/entities/npcs/npcBlue.tscn" type="PackedScene" id=3]
-[ext_resource path="res://app/objects/entities/npcs/npcRed.tscn" type="PackedScene" id=4]
-[ext_resource path="res://app/objects/entities/npcs/npcGreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://app/objects/entities/npcs/npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://app/objects/entities/potion.tscn" type="PackedScene" id=8]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
@@ -43,17 +41,16 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="actors" type="Node" parent="."]
 
-[node name="npcBlue" parent="actors" instance=ExtResource( 3 )]
+[node name="npc" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 512, 192 )
-z_index = 1
 
-[node name="npcRed" parent="actors" instance=ExtResource( 4 )]
+[node name="npc2" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 576, 192 )
-z_index = 1
+npcType = 1
 
-[node name="npcGreen" parent="actors" instance=ExtResource( 5 )]
+[node name="npc3" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 640, 192 )
-z_index = 1
+npcType = 2
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
 position = Vector2( 64, 64 )
