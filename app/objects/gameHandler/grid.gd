@@ -6,11 +6,10 @@ var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
 
-
 onready var playerScene = load("res://app/objects/entities/player.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
 	for x in range(gridSize.x):
 		grid.append([])
 		for y in range(gridSize.y):

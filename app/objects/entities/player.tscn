@@ -19,7 +19,7 @@ scale = 2.0
 color = Color( 0.0470588, 0.701961, 0.717647, 1 )
 anim_offset = 0.26
 
-[node name="playerSprite" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
@@ -36,6 +36,7 @@ one_shot = true
 [node name="playerSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "hero"
+frame = 1
 playing = true
 centered = false
 

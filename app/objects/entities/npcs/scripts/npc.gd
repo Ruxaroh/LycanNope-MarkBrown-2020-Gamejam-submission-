@@ -38,7 +38,3 @@ func die():
 	else:
 		pass
 		# Game Over
-
-
-func _on_moveTimer_timeout():
-	move()

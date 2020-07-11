@@ -16,7 +16,3 @@ func setShirtColour():
 	else:
 		spriteTexture = load("res://app/assets/sprites/npcs/npcGreen/npcGreen0.png")
 	$npcSprite.set_texture(spriteTexture)
-
-
-func _on_moveTimer_timeout():
-	move()
