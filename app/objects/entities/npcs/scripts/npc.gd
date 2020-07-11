@@ -18,13 +18,13 @@ func _ready():
 func move():
 	if moveDir != Vector2.ZERO:
 		if grid.isCellVacent(position, moveDir):
-			$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.3,$Tween.TRANS_LINEAR)
+			$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
 			$Tween.start()
 		else:
 			# npc turns to try and go the other way
 			moveDir = -moveDir
 			if grid.isCellVacent(position, moveDir):
-				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.3,$Tween.TRANS_LINEAR)
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
 				$Tween.start()
 			else:
 				# If here npc is blocked both sides
