@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-var type = -1
+var type = 5
 
 
 # Called when the node enters the scene tree for the first time.

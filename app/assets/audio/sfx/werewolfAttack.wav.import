@@ -12,7 +12,7 @@ dest_files=[ "res://.import/werewolfAttack.wav-e4751329b49dbe0acc6b151667d033f1.
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
