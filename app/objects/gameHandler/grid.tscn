@@ -57,5 +57,7 @@ position = Vector2( 64, 64 )
 z_index = 1
 
 [node name="redPotion" parent="actors" instance=ExtResource( 8 )]
-position = Vector2( 128, 64 )
+position = Vector2( 576, 320 )
 effect = 1
+
+[node name="Particles2D" type="Particles2D" parent="."]
