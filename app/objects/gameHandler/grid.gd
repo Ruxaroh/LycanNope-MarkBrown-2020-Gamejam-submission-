@@ -1,6 +1,6 @@
 extends TileMap
 
-# PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5
 
 var half_cell_size = cell_size / 2
 var grid = []
