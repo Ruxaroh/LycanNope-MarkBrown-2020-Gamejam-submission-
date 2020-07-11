@@ -5,6 +5,7 @@ extends TileMap
 var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
+var collectedPotion
 
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
@@ -31,7 +32,8 @@ func isCellVacent(pos, direction):
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
 						break
-			if grid[gridPos.x][gridPos.y] == null:
+			print($wallTiles.get_cellv(gridPos))
+			if $wallTiles.get_cellv(gridPos) == -1:
 				return true
 	return false
 
