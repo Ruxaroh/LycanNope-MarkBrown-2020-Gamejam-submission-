@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://app/objects/entities/npcs/npc.tscn" type="PackedScene" id=3]
+[ext_resource path="res://app/objects/entities/npcs/npcBlue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://app/objects/entities/npcs/npcRed.tscn" type="PackedScene" id=4]
+[ext_resource path="res://app/objects/entities/npcs/npcGreen.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
 
@@ -11,8 +13,13 @@ tile_set = SubResource( 1 )
 format = 1
 script = ExtResource( 1 )
 
-[node name="npc" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 2, 2 )
+[node name="npcBlue" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
 
 [node name="playerSprite" parent="." instance=ExtResource( 2 )]
 position = Vector2( 128, 64 )
+
+[node name="npcRed" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 64 )
+
+[node name="npcGreen" parent="." instance=ExtResource( 5 )]
