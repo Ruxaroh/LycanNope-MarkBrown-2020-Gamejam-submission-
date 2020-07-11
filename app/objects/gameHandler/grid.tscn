@@ -74,14 +74,6 @@ z_index = 1
 position = Vector2( 256, 256 )
 effect = 2
 
-[node name="redPotion2" parent="actors" instance=ExtResource( 8 )]
-position = Vector2( 192, 256 )
-effect = 1
-
-[node name="redPotion3" parent="actors" instance=ExtResource( 8 )]
-position = Vector2( 320, 256 )
-effect = 3
-
 [node name="pit" parent="actors" instance=ExtResource( 5 )]
 position = Vector2( 576, 64 )
 script = ExtResource( 7 )
