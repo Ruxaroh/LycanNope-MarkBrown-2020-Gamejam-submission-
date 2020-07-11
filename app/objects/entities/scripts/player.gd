@@ -3,11 +3,11 @@ extends KinematicBody2D
 var heroTurn := true
 var moveDir = Vector2()
 var grid
-var type
+var type = 1
 
 func _ready():
-	type = 1
 	grid = get_parent()
+	grid.updateChildPos(self)
 	set_physics_process(true)
 
 func _physics_process(delta):
