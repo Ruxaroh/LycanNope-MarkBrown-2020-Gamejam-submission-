@@ -8,7 +8,8 @@ var grid
 var foundTarget
 var type = 1
 
-
+var extraTurn = false
+var form = "hero"
 var animStart := false
 var animDone := false
 
@@ -25,8 +26,10 @@ func playerTurn():
 func _physics_process(delta):
 
 
-	if !animStart && !animDone:
+	if form == "hero":
 		foundTarget = grid.findNpcInRange(self)
+	if extraTurn:
+		foundTarget = null
 
 	if foundTarget == null:
 		moveDir = $heroMovement.getMoveDir()
@@ -36,6 +39,8 @@ func _physics_process(delta):
 				$Tween.start()
 				$footstepSFX1.play()
 				set_physics_process(false)
+				if extraTurn:
+					extraTurn = false
 				emit_signal("playerTurnFinished")
 	else:
 		if !animDone && !animStart:
@@ -43,18 +48,21 @@ func _physics_process(delta):
 			animStart = true
 		elif !animDone:
 			pass
-		else:
+		elif form == "villain":
 			if grid.isCellVacent(position, foundTarget, "player"):
 				moveDir = foundTarget
-				print("hi")
 				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
 				$Tween.start()
 				#set_physics_process(false)
 
 func transform():
-		$transformSFX.play()
-		$transformParticle.emitting = true
-		$transformDelay.start()
+	if form == "hero":
+		form = "villain"
+	else:
+		form = "hero"
+	$transformSFX.play()
+	$transformParticle.emitting = true
+	$transformDelay.start()
 
 
 func _on_transformDelay_timeout():
@@ -69,4 +77,7 @@ func _on_transformDelay2_timeout():
 	if !animDone:
 		animDone = true
 	else:
+		animStart = false
 		animDone = false
+		extraTurn = true
+		playerTurn()

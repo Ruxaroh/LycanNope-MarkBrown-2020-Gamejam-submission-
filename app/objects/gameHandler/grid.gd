@@ -30,8 +30,7 @@ func isCellVacent(pos, direction, asker):
 			for child in $actors.get_children():
 				if world_to_map(child.position) == gridPos && child.type == 6:
 					child.smash()
-			return(true)
-			return(true)
+					return(true)
 		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
 			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
