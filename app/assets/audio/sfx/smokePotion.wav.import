@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/smokePotion.wav-be9c63e42d96bca443fc95c974240c30.sample"
+
+[deps]
+
+source_file="res://app/assets/audio/sfx/smokePotion.wav"
+dest_files=[ "res://.import/smokePotion.wav-be9c63e42d96bca443fc95c974240c30.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
