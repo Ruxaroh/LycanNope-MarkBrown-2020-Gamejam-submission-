@@ -16,7 +16,7 @@ var animDone := false
 func _ready():
 	grid = get_parent().get_parent()
 	set_physics_process(false)
-	var turnController = get_tree().get_root().get_node("mainScene/turnController")
+	var turnController = get_tree().get_root().get_child(0).get_child(1)
 	connect("playerTurnFinished", turnController, "turnControl")
 
 func playerTurn():
@@ -32,7 +32,9 @@ func _physics_process(delta):
 		moveDir = $heroMovement.getMoveDir()
 		if moveDir != Vector2.ZERO:		
 			if grid.isCellVacent(position, moveDir):
-				position = grid.updateChildPos(self)
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
+				$Tween.start()
+				$footstepSFX1.play()
 				set_physics_process(false)
 				emit_signal("playerTurnFinished")
 	else:
@@ -44,10 +46,13 @@ func _physics_process(delta):
 		else:
 			if grid.isCellVacent(position, foundTarget):
 				moveDir = foundTarget
-				position = grid.updateChildPos(self)
+				print("hi")
+				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
+				$Tween.start()
 				#set_physics_process(false)
 
 func transform():
+	$transformSFX.play()
 	$transformParticle.emitting = true
 	$transformDelay.start()
 

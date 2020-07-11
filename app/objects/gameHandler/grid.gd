@@ -1,6 +1,6 @@
 extends TileMap
 
-# PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -27,6 +27,7 @@ func isCellVacent(pos, direction):
 			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_child(1).playerTurn:
 				for child in $actors.get_children():
 					if world_to_map(child.position) == gridPos:
+						$potionPickupSFX.play()
 						collectedPotion = child.effect
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
@@ -73,6 +74,6 @@ func findNpcInRange(child):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
 			break
 		if grid[childPos.x][y] == 4:
-			return(Vector2(-1, 0))
+			return(Vector2(0, -1))
 
 	return(null)
