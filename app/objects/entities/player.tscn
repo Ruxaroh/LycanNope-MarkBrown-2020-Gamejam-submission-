@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://app/assets/sprites/player/playerFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://app/objects/entities/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://app/objects/entities/scripts/villainMovement.gd" type="Script" id=3]
 [ext_resource path="res://app/objects/entities/scripts/heroMovement.gd" type="Script" id=4]
-[ext_resource path="res://app/assets/audio/sfx/footstep.wav" type="AudioStream" id=5]
-[ext_resource path="res://app/assets/audio/sfx/transformToWerewolf.wav" type="AudioStream" id=6]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
@@ -55,15 +53,5 @@ one_shot = true
 explosiveness = 0.22
 randomness = 0.4
 process_material = SubResource( 1 )
-
-[node name="footstepSFX1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -5.746
-
-[node name="transformSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -10.0
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="timeout" from="transformDelay" to="." method="_on_transformDelay_timeout"]
 [connection signal="timeout" from="transformDelay2" to="." method="_on_transformDelay_timeout"]

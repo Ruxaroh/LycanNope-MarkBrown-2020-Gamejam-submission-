@@ -12,7 +12,7 @@ dest_files=[ "res://.import/transformToWerewolf.wav-c45db1a34fa6e500f9fb93c70b1e
 [params]
 
 force/8_bit=false
-force/mono=true
+force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

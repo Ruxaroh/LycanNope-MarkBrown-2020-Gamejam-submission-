@@ -29,7 +29,6 @@ func isCellVacent(pos, direction):
 				print("hi")
 				for child in $actors.get_children():
 					if world_to_map(child.position) == gridPos:
-						$potionPickupSFX.play()
 						collectedPotion = child.effect
 						grid[gridPos.x][gridPos.y] = null
 						child.queue_free()
