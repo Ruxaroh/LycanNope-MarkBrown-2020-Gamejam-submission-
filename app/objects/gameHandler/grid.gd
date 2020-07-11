@@ -74,6 +74,6 @@ func findNpcInRange(child):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
 			break
 		if grid[childPos.x][y] == 4:
-			return(Vector2(-1, 0))
+			return(Vector2(0, -1))
 
 	return(null)
