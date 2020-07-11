@@ -2,7 +2,7 @@ extends TileMap
 
 # PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4
 
-
+var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
 var collectedPotion
@@ -24,9 +24,7 @@ func isCellVacent(pos, direction):
 	var gridPos = world_to_map(pos) + direction
 	if gridPos.x < gridSize.x && gridPos.x >= 0:
 		if gridPos.y < gridSize.y && gridPos.y >= 0:
-			print(get_parent().get_node("turnController").playerTurn)
-			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_node("turnController").playerTurn:
-				print("hi")
+			if grid[gridPos.x][gridPos.y] == 3 && get_parent().get_child(1).playerTurn:
 				for child in $actors.get_children():
 					if world_to_map(child.position) == gridPos:
 						collectedPotion = child.effect
@@ -47,6 +45,7 @@ func updateChildPos(child):
 	var targetPos = map_to_world(newGridPos)
 	return targetPos
 	
+	return(Vector2(0,0))
 
 
 func findNpcInRange(child):
@@ -74,6 +73,6 @@ func findNpcInRange(child):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
 			break
 		if grid[childPos.x][y] == 4:
-			return(Vector2(0, -1))
+			return(Vector2(-1, 0))
 
 	return(null)

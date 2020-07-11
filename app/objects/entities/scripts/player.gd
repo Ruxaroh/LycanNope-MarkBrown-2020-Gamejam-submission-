@@ -16,8 +16,7 @@ var animDone := false
 func _ready():
 	grid = get_parent().get_parent()
 	set_physics_process(false)
-	var turnController = get_tree().get_root().get_child(0).get_child(1)
-	print(turnController)
+	var turnController = get_tree().get_root().get_node("mainScene/turnController")
 	connect("playerTurnFinished", turnController, "turnControl")
 
 func playerTurn():
