@@ -11,7 +11,7 @@ var animStart := false
 var animDone := false
 
 func _ready():
-	grid = get_parent()
+	grid = get_parent().get_parent()
 	set_physics_process(false)
 	var turnController = get_tree().get_root().get_node("mainScene/turnController")
 	connect("playerTurnFinished", turnController, "turnControl")
@@ -49,6 +49,6 @@ func transform():
 func _on_transformDelay_timeout():
 	if $playerSprite.animation == "hero":
 		$playerSprite.play("villain")
-		$transformDelay.start()
+		$transformDelay2.start()
 	else:
 		animDone = true

@@ -5,7 +5,7 @@ signal playerTurn
 signal gameTurn
 
 func _ready():	
-	var player = get_node("../grid/player")
+	var player = get_node("../grid/actors/player")
 	connect("playerTurn", player, "playerTurn")
 	
 	var npcs = get_tree().get_nodes_in_group("npc")

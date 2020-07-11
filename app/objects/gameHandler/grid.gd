@@ -15,7 +15,7 @@ func _ready():
 		grid.append([])
 		for y in range(gridSize.y):
 			grid[x].append(null)
-	for child in get_children():
+	for child in $actors.get_children():
 		var childPos = world_to_map(child.position)
 		grid[childPos.x][childPos.y] = child.type
 	

@@ -33,6 +33,10 @@ script = ExtResource( 3 )
 wait_time = 2.1
 one_shot = true
 
+[node name="transformDelay2" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
 [node name="playerSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "hero"
@@ -51,3 +55,4 @@ explosiveness = 0.22
 randomness = 0.4
 process_material = SubResource( 1 )
 [connection signal="timeout" from="transformDelay" to="." method="_on_transformDelay_timeout"]
+[connection signal="timeout" from="transformDelay2" to="." method="_on_transformDelay_timeout"]

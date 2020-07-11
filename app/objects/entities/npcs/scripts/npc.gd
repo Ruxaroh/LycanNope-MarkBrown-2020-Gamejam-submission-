@@ -8,7 +8,7 @@ export var enemy : bool = false
 
 func _ready():
 	type = 4 # type 4 = npc
-	grid = get_parent()
+	grid = get_parent().get_parent()
 	# set_physics_process(true)
 	setShirtColour()
 
