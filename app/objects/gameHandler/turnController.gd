@@ -1,6 +1,6 @@
 extends Node
 
-var playerTurn := true
+var playerTurn := false
 signal playerTurn
 signal gameTurn
 
@@ -15,14 +15,16 @@ func _ready():
 
 func turnControl():
 	if playerTurn:
+		playerTurn = false
+	else:
+		playerTurn = true
+	if playerTurn:
 		print("Player Turn")
 		emit_signal("playerTurn")
-		playerTurn = false
 	else:
 		print("Game Turn")
 		$GameTimer.start()
 
 func _on_GameTimer_timeout():
 	emit_signal("gameTurn")
-	playerTurn = true
 	turnControl()
