@@ -12,7 +12,11 @@ dest_files=[ "res://.import/glassSmash.wav-09399573b09769503804d94af1dc66fc.samp
 [params]
 
 force/8_bit=false
+<<<<<<< HEAD
 force/mono=false
+=======
+force/mono=true
+>>>>>>> 0a3abf58deca9cdeb1c08c3eca1554da214c44ae
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
