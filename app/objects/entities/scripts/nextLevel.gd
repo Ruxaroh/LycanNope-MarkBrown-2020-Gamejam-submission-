@@ -2,6 +2,7 @@ extends Node
 
 
 func nextLevel(nextLevelCode,level):
+	$levelSFX.play()
 	get_parent().add_child(load("res://app/levels/" + str(nextLevelCode) + ".tscn").instance())
 	get_parent().remove_child(level)
 	get_parent().currentLevel = nextLevelCode

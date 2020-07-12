@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://app/levels/1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://app/objects/gameHandler/MainCamera.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://app/assets/sprites/ui/Help7.png" type="Texture" id=6]
 [ext_resource path="res://app/assets/sprites/ui/Help1.png" type="Texture" id=7]
 [ext_resource path="res://app/assets/audio/music.wav" type="AudioStream" id=8]
+[ext_resource path="res://app/assets/audio/sfx/nextLevel.wav" type="AudioStream" id=9]
 
 [node name="levelHandeler" type="Node2D"]
 script = ExtResource( 5 )
@@ -32,6 +33,9 @@ texture = ExtResource( 3 )
 
 [node name="nextLevel" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="levelSFX" type="AudioStreamPlayer" parent="nextLevel"]
+stream = ExtResource( 9 )
 
 [node name="MainCamera" parent="." instance=ExtResource( 2 )]
 anchor_mode = 0
