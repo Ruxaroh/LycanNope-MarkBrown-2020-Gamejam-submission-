@@ -38,6 +38,11 @@ func _physics_process(delta):
 				$Tween.interpolate_property(self, "position",position,grid.updateChildPos(self),0.2,$Tween.TRANS_LINEAR)
 				$Tween.start()
 				$footstepSFX1.play()
+				
+				# Screen shake for stepping
+				# Occasional odd artifacts
+				get_tree().get_root().get_node("levelHandeler/MainCamera").step()
+				
 				set_physics_process(false)
 				if extraTurn:
 					extraTurn = false
@@ -63,6 +68,8 @@ func transform():
 	$transformSFX.play()
 	$transformParticle.emitting = true
 	$transformDelay.start()
+	
+	get_tree().get_root().get_node("levelHandeler/MainCamera").transform()
 
 
 func _on_transformDelay_timeout():
