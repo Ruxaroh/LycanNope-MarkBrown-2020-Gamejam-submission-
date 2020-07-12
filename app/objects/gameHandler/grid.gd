@@ -52,13 +52,14 @@ func isCellVacent(pos, direction, asker):
 # Game over function
 func gameOver():
 	if !self.is_queued_for_deletion():
-		get_node("/root/levelHandeler/bgMusic").volume_db = -80
+		get_tree().get_root().get_node("/root/levelHandeler/bgMusic").volume_db = -80
 	# Chose a random game over message
 	var messageScene = load("res://app/gameScenes/gameOverMessage.tscn")
 	var message = messageScene.instance()
 	
 	rng.randomize()
 	var messageImage = "gameOver" + str(rng.randi_range(1, noGameOverMessages)) + ".png"
+	print(messageImage)
 	message.texture = load("res://app/assets/sprites/ui/" + messageImage)
 	
 	$gameOver.add_child(message)
@@ -131,5 +132,5 @@ func findNpcInRange(child):
 
 func _process(delta):
 	if Input.is_action_just_pressed("restart") && !self.is_queued_for_deletion():
-		get_node("/root/levelHandeler/bgMusic").volume_db = -2
+		get_tree().get_root().get_node("/root/levelHandeler/bgMusic").volume_db = -2
 		get_parent().get_node("nextLevel").nextLevel(get_parent().currentLevel, self)
