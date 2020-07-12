@@ -9,8 +9,14 @@ func _ready():
 	var player = get_parent().get_node("player")
 	connect("slimeSmashed", player, "transform")
 
+
 func smash():
-	#$smashSFX.play()
+	$smashSFX.play()
+	$AnimatedSprite.visible = false
+	$Particles2D.emitting = true
 	emit_signal("slimeSmashed")
+	$deleteTimer.start()
+
+func delete():
 	get_parent().remove_child(self)
 	queue_free()
