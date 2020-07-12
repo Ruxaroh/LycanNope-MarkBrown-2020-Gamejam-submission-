@@ -66,6 +66,7 @@ nextLevelCode = 19
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
