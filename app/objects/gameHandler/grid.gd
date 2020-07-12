@@ -129,6 +129,6 @@ func findNpcInRange(child):
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("restart") && !self.is_queued_for_deletion():
 		get_parent().get_node("bgMusic").volume_db = -2
 		get_parent().get_node("nextLevel").nextLevel(get_parent().currentLevel, self)
