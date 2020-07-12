@@ -78,11 +78,11 @@ position = Vector2( 832, 384 )
 position = Vector2( 576, 192 )
 
 [node name="potion" parent="actors" instance=ExtResource( 7 )]
-position = Vector2( 448, 576 )
+position = Vector2( 384, 576 )
 effect = 3
 
 [node name="potion2" parent="actors" instance=ExtResource( 7 )]
-position = Vector2( 384, 576 )
+position = Vector2( 448, 576 )
 effect = 3
 
 [node name="potion3" parent="actors" instance=ExtResource( 7 )]
