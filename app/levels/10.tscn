@@ -62,6 +62,7 @@ z_index = 1
 
 [node name="stairs" parent="actors" instance=ExtResource( 13 )]
 position = Vector2( 832, 320 )
+nextLevelCode = 11
 
 [node name="npc" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 576, 128 )
@@ -74,6 +75,7 @@ effect = 3
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
