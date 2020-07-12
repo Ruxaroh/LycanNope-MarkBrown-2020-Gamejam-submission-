@@ -16,13 +16,13 @@ script = ExtResource( 5 )
 position = Vector2( 502.109, 276.356 )
 texture = ExtResource( 7 )
 
+[node name="WelcomeMessage - Copy" type="Sprite" parent="grid"]
+position = Vector2( 163.542, 71.2329 )
+texture = ExtResource( 3 )
+
 [node name="nextLevel" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="MainCamera" parent="." instance=ExtResource( 2 )]
 anchor_mode = 0
 current = true
-
-[node name="WelcomeMessage - Copy" type="Sprite" parent="."]
-position = Vector2( 163.542, 71.2329 )
-texture = ExtResource( 3 )

@@ -6,6 +6,7 @@ var half_cell_size = cell_size / 2
 var grid = []
 var gridSize = Vector2(20, 11)
 var collectedPotion = 0
+var steamLocations = []
 
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
@@ -64,7 +65,10 @@ func collectPotion(gridPos):
 
 func updateChildPos(child):
 	var gridPos = world_to_map(child.position)
-	grid[gridPos.x][gridPos.y] = null
+	if gridPos in steamLocations:
+		grid[gridPos.x][gridPos.y] = 8
+	else:
+		grid[gridPos.x][gridPos.y] = null
 	
 	var newGridPos = gridPos + child.moveDir
 	grid[newGridPos.x][newGridPos.y] = child.type
@@ -81,7 +85,7 @@ func findNpcInRange(child):
 	for x in range(childPos.x, gridSize.x):
 		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1 || grid[x][childPos.y] == 8:
 			break
-		if grid[x][childPos.y] in [4,7]:
+		elif grid[x][childPos.y] in [4,7]:
 			return(Vector2(1, 0))
 	
 	for x in range(childPos.x, 0, -1):
@@ -93,13 +97,13 @@ func findNpcInRange(child):
 	for y in range(childPos.y, gridSize.y):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1 || grid[childPos.x][y] == 8:
 			break
-		if grid[childPos.x][y] in [4,7]:
+		elif grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, 1))	
 	
 	for y in range(childPos.y, 0, -1):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1 || grid[childPos.x][y] == 8:
 			break
-		if grid[childPos.x][y] in [4,7]:
+		elif grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, -1))
 
 	return(null)

@@ -41,6 +41,8 @@ func _input(event):
 					newObj = smokeScene.instance()
 				newObj.position = posStore
 				grid.grid[gridPos.x][gridPos.y] = newObj.type
+				if grid.collectedPotion == 3:
+					grid.steamLocations.append(grid.world_to_map(newObj.position))
 				get_parent().get_node("actors").add_child(newObj)
 				grid.collectedPotion = 0
 			
