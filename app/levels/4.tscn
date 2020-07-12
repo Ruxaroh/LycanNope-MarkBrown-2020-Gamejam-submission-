@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://app/assets/audio/sfx/potionPickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://app/assets/sprites/ui/Help10.png" type="Texture" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://app/assets/sprites/ui/Help15.png" type="Texture" id=7]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
@@ -54,6 +55,14 @@ tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 196617, 0, 0, 196618, 0, 0, 262153, 0, 0, 262154, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0 )
 
+[node name="Help10" type="Sprite" parent="."]
+position = Vector2( 456, 254 )
+texture = ExtResource( 5 )
+
+[node name="Help15" type="Sprite" parent="."]
+position = Vector2( 864, 240 )
+texture = ExtResource( 7 )
+
 [node name="actors" type="Node" parent="."]
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
@@ -72,6 +81,7 @@ npcType = 2
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -90,7 +100,3 @@ pitch_scale = 0.9
 [node name="mouseController" parent="." instance=ExtResource( 15 )]
 
 [node name="turnController" parent="." instance=ExtResource( 16 )]
-
-[node name="Help10" type="Sprite" parent="."]
-position = Vector2( 456, 254 )
-texture = ExtResource( 5 )
