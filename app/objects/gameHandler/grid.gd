@@ -8,6 +8,9 @@ var gridSize = Vector2(20, 11)
 var collectedPotion = 0
 var steamLocations = []
 
+# Variables for random messages
+var rng = RandomNumberGenerator.new()
+var noGameOverMessages = 3
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
 
@@ -42,10 +45,24 @@ func isCellVacent(pos, direction, asker):
 		get_parent().get_node("nextLevel").nextLevel($actors.get_node("stairs").nextLevelCode, self)
 		
 	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4 && !$gameOver.visible:
-		$gameOver.visible = true
-		$actors/player/attackSFX.play()
+		gameOver()
 	
 	return(false)
+
+# Game over function
+func gameOver():
+	# Chose a random game over message
+	var messageScene = load("res://app/gameScenes/gameOverMessage.tscn")
+	var message = messageScene.instance()
+	
+	#rng.randi_range(1, 3)
+	var messageImage = "gameOver" + str(rng.randi_range(1, noGameOverMessages)) + ".png"
+	message.texture = load("res://app/assets/sprites/ui/" + messageImage)
+	
+	$gameOver.add_child(message)
+	$gameOver.visible = true
+	$actors/player/attackSFX.play()
+
 
 # Checks if gridPos is within the grid boundarys
 func isWithinGrid(gridPos):
