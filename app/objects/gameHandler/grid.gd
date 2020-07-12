@@ -51,6 +51,7 @@ func isCellVacent(pos, direction, asker):
 
 # Game over function
 func gameOver():
+	get_parent().get_node("bgMusic").volume_db = -80
 	# Chose a random game over message
 	var messageScene = load("res://app/gameScenes/gameOverMessage.tscn")
 	var message = messageScene.instance()
@@ -129,4 +130,5 @@ func findNpcInRange(child):
 
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
+		get_parent().get_node("bgMusic").volume_db = -2
 		get_parent().get_node("nextLevel").nextLevel(get_parent().currentLevel, self)
