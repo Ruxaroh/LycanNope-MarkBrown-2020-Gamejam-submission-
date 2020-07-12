@@ -1,8 +1,48 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://app/assets/sprites/tiles/smokeTile.png" type="Texture" id=1]
 [ext_resource path="res://app/objects/entities/scripts/smoke.gd" type="Script" id=2]
 [ext_resource path="res://app/assets/audio/sfx/smokePotion.wav" type="AudioStream" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0, 9.91838e-39, 0.411429, 1, 2.62191 )
+colors = PoolColorArray( 0.494118, 0.494118, 0.494118, 0, 0.298039, 0.298039, 0.298039, 0.231373, 0.756863, 0.756863, 0.756863, 0.541176, 0.856896, 0.856896, 0.856896, 0.799933, 1, 1, 1, 0.305882, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=5]
+min_value = -10.0
+_data = [ Vector2( 0, -3.9 ), 0.0, 0.0, 0, 0, Vector2( 1, -10 ), 48.4579, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.732323, 0.904545 ), -0.426316, -0.426316, 0, 0, Vector2( 0.994949, 0.795455 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 1.0
+radial_accel_curve = SubResource( 6 )
+damping = 2.0
+scale = 0.4
+scale_random = 0.12
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -15,3 +55,10 @@ centered = false
 stream = ExtResource( 3 )
 volume_db = -5.0
 autoplay = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 32, 32 )
+amount = 12
+lifetime = 5.0
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

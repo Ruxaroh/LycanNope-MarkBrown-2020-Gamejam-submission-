@@ -19,10 +19,8 @@ func turnControl():
 	else:
 		playerTurn = true
 	if playerTurn:
-		print("Player Turn")
 		emit_signal("playerTurn")
 	else:
-		print("Game Turn")
 		$GameTimer.start()
 		emit_signal("gameTurn")
 
