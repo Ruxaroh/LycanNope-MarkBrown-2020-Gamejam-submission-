@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://app/objects/entities/pit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://app/objects/entities/potion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://app/assets/sprites/ui/Help12.png" type="Texture" id=8]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
@@ -163,3 +164,7 @@ pitch_scale = 0.9
 [node name="mouseController" parent="." instance=ExtResource( 15 )]
 
 [node name="turnController" parent="." instance=ExtResource( 16 )]
+
+[node name="Help12" type="Sprite" parent="."]
+position = Vector2( 485.881, 562.774 )
+texture = ExtResource( 8 )

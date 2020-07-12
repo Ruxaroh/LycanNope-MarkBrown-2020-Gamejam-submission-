@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://app/assets/audio/sfx/potionPickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://app/assets/sprites/ui/Help3.png" type="Texture" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://app/assets/sprites/ui/Help8.png" type="Texture" id=7]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
@@ -57,6 +58,10 @@ tile_data = PoolIntArray( 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 327686, 0, 0
 [node name="Help3" type="Sprite" parent="."]
 position = Vector2( 432.787, 278.856 )
 texture = ExtResource( 5 )
+
+[node name="Help8" type="Sprite" parent="."]
+position = Vector2( 729.077, 151.224 )
+texture = ExtResource( 7 )
 
 [node name="actors" type="Node" parent="."]
 
