@@ -1,6 +1,6 @@
 extends TileMap
 
-#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6 MEAT = 7 SMOKE = 8
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6 MEAT = 7 SMOKE = 8 STAIRS = 9
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -39,6 +39,10 @@ func isCellVacent(pos, direction, asker):
 			return(true)
 	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
 		$gameOver.visible = true
+		
+	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
+		$gameOver.visible = true
+	
 	return(false)
 
 # Checks if gridPos is within the grid boundarys
