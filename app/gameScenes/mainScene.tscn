@@ -35,5 +35,5 @@ script = ExtResource( 4 )
 [node name="MainCamera" parent="." instance=ExtResource( 2 )]
 anchor_mode = 0
 current = true
-[connection signal="timeout" from="timerStartScreen" to="." method="_on_timerStartScreen_timeout"]
 [connection signal="timeout" from="timerStartScreen" to="grid/startScreen" method="_on_timerStartScreen_timeout"]
+[connection signal="timeout" from="timerStartScreen" to="." method="_on_timerStartScreen_timeout"]
