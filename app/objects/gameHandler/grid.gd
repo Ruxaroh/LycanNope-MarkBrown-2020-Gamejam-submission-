@@ -39,8 +39,6 @@ func isCellVacent(pos, direction, asker):
 			return(true)
 	if get_node("actors").get_node("player").form == "hero" && grid[gridPos.x][gridPos.y] == 9:
 		get_parent().get_node("nextLevel").nextLevel($actors.get_node("stairs").nextLevelCode, self)
-		#get_parent().remove_child(self)
-		#queue_free()	
 		
 	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
 		$gameOver.visible = true
@@ -109,4 +107,4 @@ func findNpcInRange(child):
 
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+		get_parent().get_node("nextLevel").nextLevel(get_parent().currentLevel, self)
