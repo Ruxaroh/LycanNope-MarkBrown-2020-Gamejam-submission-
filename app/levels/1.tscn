@@ -60,7 +60,7 @@ z_index = 1
 
 [node name="stairs" parent="actors" instance=ExtResource( 13 )]
 position = Vector2( 832, 320 )
-nextLevelCode = 19
+nextLevelCode = 2
 
 [node name="CellHover" type="AnimatedSprite" parent="."]
 visible = false
