@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gameOver4.png-e377546321c67c36cf100e87c6329cfc.stex"
+path="res://.import/Help15.png-a0f732ab108b19a0db6dbb5b03894031.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://app/assets/sprites/ui/gameOver4.png"
-dest_files=[ "res://.import/gameOver4.png-e377546321c67c36cf100e87c6329cfc.stex" ]
+source_file="res://app/assets/sprites/ui/Help15.png"
+dest_files=[ "res://.import/Help15.png-a0f732ab108b19a0db6dbb5b03894031.stex" ]
 
 [params]
 
