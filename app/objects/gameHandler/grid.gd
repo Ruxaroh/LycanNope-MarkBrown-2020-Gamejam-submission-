@@ -99,3 +99,8 @@ func findNpcInRange(child):
 			return(Vector2(0, -1))
 
 	return(null)
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
