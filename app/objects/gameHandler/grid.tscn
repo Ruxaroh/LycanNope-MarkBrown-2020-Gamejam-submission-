@@ -12,7 +12,7 @@
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
 [ext_resource path="res://app/objects/entities/glass.tscn" type="PackedScene" id=12]
-[ext_resource path="res://app/objects/entities/meat.tscn" type="PackedScene" id=13]
+[ext_resource path="res://app/objects/entities/smoke.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 
@@ -65,7 +65,7 @@ position = Vector2( 832, 64 )
 npcType = 1
 
 [node name="npc3" parent="actors" instance=ExtResource( 3 )]
-position = Vector2( 640, 512 )
+position = Vector2( 960, 512 )
 npcType = 2
 
 [node name="player" parent="actors" instance=ExtResource( 2 )]
@@ -83,8 +83,8 @@ script = ExtResource( 7 )
 [node name="glass" parent="actors" instance=ExtResource( 12 )]
 position = Vector2( 512, 256 )
 
-[node name="meat" parent="actors" instance=ExtResource( 13 )]
-position = Vector2( 1088, 384 )
+[node name="smoke" parent="actors" instance=ExtResource( 13 )]
+position = Vector2( 448, 512 )
 
 [node name="potionPickupSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

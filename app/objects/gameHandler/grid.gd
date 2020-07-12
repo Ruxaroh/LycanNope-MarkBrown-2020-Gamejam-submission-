@@ -1,6 +1,6 @@
 extends TileMap
 
-#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6 MEAT = 7
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6 MEAT = 7 SMOKE = 8
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -24,6 +24,8 @@ func _ready():
 func isCellVacent(pos, direction, asker):
 	var gridPos = world_to_map(pos) + direction
 	if isWithinGrid(gridPos):
+		if grid[gridPos.x][gridPos.y] == 8:
+			return(true)
 		if asker == "player" && grid[gridPos.x][gridPos.y] == 3:
 			collectPotion(gridPos)
 		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] in [6,7]:
@@ -34,7 +36,7 @@ func isCellVacent(pos, direction, asker):
 		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
 			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
-			return true
+			return(true)
 	return false
 
 # Checks if gridPos is within the grid boundarys
@@ -71,25 +73,25 @@ func findNpcInRange(child):
 	var childPos = world_to_map(child.position)
 	
 	for x in range(childPos.x, gridSize.x):
-		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1:
+		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1 || grid[x][childPos.y] == 8:
 			break
 		if grid[x][childPos.y] in [4,7]:
 			return(Vector2(1, 0))
 	
 	for x in range(childPos.x, 0, -1):
-		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1:
+		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1 || grid[x][childPos.y] == 8:
 			break
 		elif grid[x][childPos.y] in [4,7]:
 			return(Vector2(-1, 0))	
 	
 	for y in range(childPos.y, gridSize.y):
-		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
+		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1 || grid[childPos.x][y] == 8:
 			break
 		if grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, 1))	
 	
 	for y in range(childPos.y, 0, -1):
-		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
+		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1 || grid[childPos.x][y] == 8:
 			break
 		if grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, -1))
