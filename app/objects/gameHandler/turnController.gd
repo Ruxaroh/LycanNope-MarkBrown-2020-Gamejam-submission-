@@ -24,7 +24,8 @@ func turnControl():
 	else:
 		print("Game Turn")
 		$GameTimer.start()
+		emit_signal("gameTurn")
 
 func _on_GameTimer_timeout():
-	emit_signal("gameTurn")
+	#emit_signal("gameTurn")
 	turnControl()
