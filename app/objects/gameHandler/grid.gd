@@ -41,8 +41,9 @@ func isCellVacent(pos, direction, asker):
 	if get_node("actors").get_node("player").form == "hero" && asker == "player" && grid[gridPos.x][gridPos.y] == 9:
 		get_parent().get_node("nextLevel").nextLevel($actors.get_node("stairs").nextLevelCode, self)
 		
-	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
+	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4 && !$gameOver.visible:
 		$gameOver.visible = true
+		$actors/player/attackSFX.play()
 	
 	return(false)
 
