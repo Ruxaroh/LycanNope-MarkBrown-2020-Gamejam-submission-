@@ -64,6 +64,7 @@ z_index = 1
 
 [node name="stairs" parent="actors" instance=ExtResource( 13 )]
 position = Vector2( 832, 320 )
+nextLevelCode = 11
 
 [node name="npc" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 576, 128 )
