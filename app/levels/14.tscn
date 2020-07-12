@@ -70,15 +70,15 @@ position = Vector2( 576, 128 )
 npcType = 2
 
 [node name="potion" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 192, 384 )
+position = Vector2( 1088, 512 )
 effect = 3
 
 [node name="potion2" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 256, 384 )
+position = Vector2( 1088, 448 )
 effect = 2
 
 [node name="potion3" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 320, 384 )
+position = Vector2( 1088, 384 )
 effect = 3
 
 [node name="pit" parent="actors" instance=ExtResource( 7 )]
@@ -133,7 +133,6 @@ position = Vector2( 1088, 320 )
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 centered = false
 
