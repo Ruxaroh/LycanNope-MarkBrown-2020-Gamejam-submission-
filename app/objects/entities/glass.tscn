@@ -1,8 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://app/objects/entities/scripts/glass.gd" type="Script" id=1]
 [ext_resource path="res://app/assets/sprites/tiles/glass.png" type="Texture" id=2]
 [ext_resource path="res://app/assets/audio/sfx/glassSmash.wav" type="AudioStream" id=3]
+[ext_resource path="res://app/assets/sprites/tiles/window shards2.png" type="Texture" id=4]
+
+[sub_resource type="Curve" id=2]
+min_value = -598.53
+max_value = 400.0
+_data = [ Vector2( 0, 375.455 ), 0.0, 0.0, 0, 0, Vector2( 0.545455, -598.53 ), -224.219, -224.219, 0, 0, Vector2( 0.997403, -31.8182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 0.01
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 500.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+linear_accel_random = 0.2
+linear_accel_curve = SubResource( 3 )
 
 [node name="glass" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -14,3 +38,16 @@ centered = false
 [node name="smashSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -5.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 32, 32 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.68
+process_material = SubResource( 1 )
+texture = ExtResource( 4 )
+
+[node name="deleteTimer" type="Timer" parent="."]
+[connection signal="timeout" from="deleteTimer" to="." method="delete"]
