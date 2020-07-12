@@ -1,7 +1,6 @@
-extends KinematicBody2D
+extends Node2D
 
-export var nextLevelCode: int = 1
-var type = 9
+var nextLevel: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

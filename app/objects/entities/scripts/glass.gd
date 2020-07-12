@@ -10,7 +10,7 @@ func _ready():
 	connect("slimeSmashed", player, "transform")
 
 func smash():
-	$smashSFX.play()
+	#$smashSFX.play()
 	emit_signal("slimeSmashed")
 	get_parent().remove_child(self)
 	queue_free()

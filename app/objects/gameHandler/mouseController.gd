@@ -1,16 +1,16 @@
 extends Node
 
-onready var grid = get_node("../grid")
-
+onready var grid = get_parent()
 var slimeScene = load("res://app/objects/entities/slime.tscn")
 var meatScene = load("res://app/objects/entities/meat.tscn")
 var smokeScene = load("res://app/objects/entities/smoke.tscn")
 
+	
 # Will be used for cell highlighting
 func _process(delta):
 	var mousePos = grid.get_global_mouse_position()
 	if grid.isWithinGrid(grid.world_to_map(mousePos)):
-		var CellHover = get_node("../grid/CellHover")
+		var CellHover = grid.get_node("CellHover")
 		CellHover.position = grid.map_to_world(grid.world_to_map(mousePos))
 		if grid.collectedPotion == 1:
 			CellHover.modulate = Color(1,0,0)
@@ -29,7 +29,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		var mousePos = grid.get_global_mouse_position()
 		if grid.isWithinGrid(grid.world_to_map(mousePos)):
-			var CellHover = get_node("../grid/CellHover")
+			var CellHover = grid.get_node("CellHover")
 			var posStore = CellHover.position
 			if checkPosValid(CellHover) && grid.collectedPotion in [1,2,3]:
 				var gridPos = grid.world_to_map(CellHover.position)
@@ -41,7 +41,7 @@ func _input(event):
 					newObj = smokeScene.instance()
 				newObj.position = posStore
 				grid.grid[gridPos.x][gridPos.y] = newObj.type
-				get_parent().get_node("grid").get_node("actors").add_child(newObj)
+				get_parent().get_node("actors").add_child(newObj)
 				grid.collectedPotion = 0
 			
 

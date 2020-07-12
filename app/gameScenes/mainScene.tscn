@@ -1,16 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://app/objects/gameHandler/grid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://app/objects/gameHandler/mouseController.gd" type="Script" id=2]
-[ext_resource path="res://app/objects/gameHandler/turnController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://app/levels/1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://app/objects/entities/scripts/nextLevel.gd" type="Script" id=4]
+[ext_resource path="res://app/gameScenes/mainScene.gd" type="Script" id=5]
 
-[node name="testLevel" type="Node2D"]
+[node name="levelHandeler" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="grid" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1.25995, 0 )
-z_index = 1
 
-[node name="turnController" parent="." instance=ExtResource( 3 )]
-
-[node name="mouseController" type="Node" parent="."]
-script = ExtResource( 2 )
+[node name="nextLevel" type="Node" parent="."]
+script = ExtResource( 4 )
