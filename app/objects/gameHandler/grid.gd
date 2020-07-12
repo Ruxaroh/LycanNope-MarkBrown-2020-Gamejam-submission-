@@ -1,6 +1,6 @@
 extends TileMap
 
-#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6
+#PLAYER = 1 View Block = 2 COLLECTABLE = 3 NPC = 4 IMPASSABLE = 5 GLASS_&_SLIME = 6 MEAT = 7
 
 var half_cell_size = cell_size / 2
 var grid = []
@@ -26,9 +26,9 @@ func isCellVacent(pos, direction, asker):
 	if isWithinGrid(gridPos):
 		if asker == "player" && grid[gridPos.x][gridPos.y] == 3:
 			collectPotion(gridPos)
-		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 6:
+		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] in [6,7]:
 			for child in $actors.get_children():
-				if world_to_map(child.position) == gridPos && child.type == 6:
+				if world_to_map(child.position) == gridPos && child.type  in [6,7]:
 					child.smash()
 					return(true)
 		if $actors.get_node("player").animStart == true && grid[gridPos.x][gridPos.y] == 5:
@@ -73,25 +73,25 @@ func findNpcInRange(child):
 	for x in range(childPos.x, gridSize.x):
 		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1:
 			break
-		if grid[x][childPos.y] == 4:
+		if grid[x][childPos.y] in [4,7]:
 			return(Vector2(1, 0))
 	
 	for x in range(childPos.x, 0, -1):
 		if $wallTiles.get_cellv(Vector2(x, childPos.y)) > -1:
 			break
-		elif grid[x][childPos.y] == 4:
+		elif grid[x][childPos.y] in [4,7]:
 			return(Vector2(-1, 0))	
 	
 	for y in range(childPos.y, gridSize.y):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
 			break
-		if grid[childPos.x][y] == 4:
+		if grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, 1))	
 	
 	for y in range(childPos.y, 0, -1):
 		if $wallTiles.get_cellv(Vector2(childPos.x, y)) > -1:
 			break
-		if grid[childPos.x][y] == 4:
+		if grid[childPos.x][y] in [4,7]:
 			return(Vector2(0, -1))
 
 	return(null)
