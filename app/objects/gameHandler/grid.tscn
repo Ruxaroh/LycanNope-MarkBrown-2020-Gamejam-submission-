@@ -12,7 +12,7 @@
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
 [ext_resource path="res://app/objects/entities/glass.tscn" type="PackedScene" id=12]
-[ext_resource path="res://app/objects/entities/smoke.tscn" type="PackedScene" id=13]
+[ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
 
@@ -83,9 +83,6 @@ script = ExtResource( 7 )
 [node name="glass" parent="actors" instance=ExtResource( 12 )]
 position = Vector2( 512, 256 )
 
-[node name="smoke" parent="actors" instance=ExtResource( 13 )]
-position = Vector2( 448, 512 )
-
 [node name="potionPickupSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -1.0
@@ -97,3 +94,10 @@ position = Vector2( -64, 0 )
 frames = SubResource( 3 )
 playing = true
 centered = false
+
+[node name="gameOver" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 384 )
+scale = Vector2( 1.1, 1.1 )
+z_index = 100
+texture = ExtResource( 14 )

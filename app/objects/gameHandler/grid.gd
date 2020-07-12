@@ -37,7 +37,9 @@ func isCellVacent(pos, direction, asker):
 			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
 			return(true)
-	return false
+	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
+		$gameOver.visible = true
+	return(false)
 
 # Checks if gridPos is within the grid boundarys
 func isWithinGrid(gridPos):
