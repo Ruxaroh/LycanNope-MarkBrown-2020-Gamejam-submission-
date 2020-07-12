@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://app/objects/entities/scripts/meat.gd" type="Script" id=1]
 [ext_resource path="res://app/assets/sprites/npcs/npcMeat/npcMeat0.png" type="Texture" id=2]
 [ext_resource path="res://app/assets/sprites/npcs/npcMeat/npcMeat1.png" type="Texture" id=3]
+[ext_resource path="res://app/assets/audio/sfx/meatPotion.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,3 +22,8 @@ frames = SubResource( 1 )
 frame = 1
 playing = true
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+autoplay = true
