@@ -75,13 +75,14 @@ z_index = 1
 
 [node name="stairs" parent="actors" instance=ExtResource( 13 )]
 position = Vector2( 1088, 320 )
+nextLevelCode = 99
 
 [node name="potion" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 192, 320 )
+position = Vector2( 256, 320 )
 effect = 1
 
 [node name="potion2" parent="actors" instance=ExtResource( 5 )]
-position = Vector2( 256, 320 )
+position = Vector2( 192, 320 )
 effect = 2
 
 [node name="potion3" parent="actors" instance=ExtResource( 5 )]
