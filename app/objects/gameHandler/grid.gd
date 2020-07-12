@@ -37,7 +37,7 @@ func isCellVacent(pos, direction, asker):
 			return(true)
 		if $wallTiles.get_cellv(gridPos) == -1 && grid[gridPos.x][gridPos.y] == null:
 			return(true)
-	if get_node("actors").get_node("player").form == "hero" && grid[gridPos.x][gridPos.y] == 9:
+	if get_node("actors").get_node("player").form == "hero" && asker == "player" && grid[gridPos.x][gridPos.y] == 9:
 		get_parent().get_node("nextLevel").nextLevel($actors.get_node("stairs").nextLevelCode, self)
 		
 	if get_node("actors").get_node("player").form == "villain" && grid[gridPos.x][gridPos.y] == 4:
