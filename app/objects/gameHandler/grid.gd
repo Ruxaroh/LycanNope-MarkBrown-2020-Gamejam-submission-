@@ -10,7 +10,7 @@ var steamLocations = []
 
 # Variables for random messages
 var rng = RandomNumberGenerator.new()
-var noGameOverMessages = 3
+var noGameOverMessages = 5
 
 onready var playerScene = load("res://app/objects/entities/player.tscn")
 
@@ -57,7 +57,7 @@ func gameOver():
 	var messageScene = load("res://app/gameScenes/gameOverMessage.tscn")
 	var message = messageScene.instance()
 	
-	#rng.randi_range(1, 3)
+	rng.randomize()
 	var messageImage = "gameOver" + str(rng.randi_range(1, noGameOverMessages)) + ".png"
 	message.texture = load("res://app/assets/sprites/ui/" + messageImage)
 	
