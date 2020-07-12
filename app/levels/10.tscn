@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://app/objects/entities/npcs/npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://app/assets/audio/sfx/potionPickup.wav" type="AudioStream" id=4]
+[ext_resource path="res://app/objects/entities/potion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
@@ -65,11 +66,14 @@ position = Vector2( 832, 320 )
 [node name="npc" parent="actors" instance=ExtResource( 3 )]
 position = Vector2( 576, 128 )
 
+[node name="potion" parent="actors" instance=ExtResource( 5 )]
+position = Vector2( 448, 320 )
+effect = 3
+
 [node name="CellHover" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 centered = false
 
