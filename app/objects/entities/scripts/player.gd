@@ -58,8 +58,10 @@ func _physics_process(delta):
 
 func transform():
 	if form == "hero":
+		$Tween.playback_speed = 5
 		form = "villain"
 	else:
+		$Tween.playback_speed = 1
 		form = "hero"
 	$transformSFX.play()
 	$transformParticle.emitting = true

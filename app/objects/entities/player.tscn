@@ -14,7 +14,7 @@ emission_sphere_radius = 1.48
 flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 20.0
+initial_velocity = 40.0
 initial_velocity_random = 0.17
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -33,14 +33,17 @@ script = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="transformDelay" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="transformDelay2" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="playerSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "hero"
+frame = 1
 playing = true
 centered = false
 
@@ -49,6 +52,7 @@ position = Vector2( 160, 160 )
 scale = Vector2( 7, 7 )
 emitting = false
 amount = 10000
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.22
 randomness = 0.4
