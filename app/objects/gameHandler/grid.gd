@@ -7,6 +7,7 @@ var grid = []
 var gridSize = Vector2(20, 11)
 var collectedPotion = 0
 var steamLocations = []
+var pitLocations = []
 
 # Variables for random messages
 var rng = RandomNumberGenerator.new()
@@ -23,6 +24,8 @@ func _ready():
 	for child in $actors.get_children():
 		var childPos = world_to_map(child.position)
 		grid[childPos.x][childPos.y] = child.type
+		if (child.type == 5):
+			pitLocations.append(Vector2(childPos.x, childPos.y))
 	
 
 func isCellVacent(pos, direction, asker):
@@ -87,6 +90,8 @@ func updateChildPos(child):
 	var gridPos = world_to_map(child.position)
 	if gridPos in steamLocations:
 		grid[gridPos.x][gridPos.y] = 8
+	elif gridPos in pitLocations:
+		grid[gridPos.x][gridPos.y] = 5
 	else:
 		grid[gridPos.x][gridPos.y] = null
 	
