@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -11,10 +11,12 @@
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
+[ext_resource path="res://app/objects/easyRead Tutorial.tscn" type="PackedScene" id=12]
 [ext_resource path="res://app/objects/entities/stairs.tscn" type="PackedScene" id=13]
 [ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 [ext_resource path="res://app/objects/gameHandler/mouseController.tscn" type="PackedScene" id=15]
 [ext_resource path="res://app/objects/gameHandler/turnController.tscn" type="PackedScene" id=16]
+[ext_resource path="res://app/assets/sprites/tutorialUI/9.png" type="Texture" id=17]
 
 [sub_resource type="TileSet" id=1]
 
@@ -107,3 +109,6 @@ pitch_scale = 0.9
 [node name="Help2" type="Sprite" parent="."]
 position = Vector2( 512, 207 )
 texture = ExtResource( 8 )
+
+[node name="easyRead Tutorial" parent="." instance=ExtResource( 12 )]
+texture = ExtResource( 17 )

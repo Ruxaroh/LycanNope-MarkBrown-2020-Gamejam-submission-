@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://app/assets/sprites/tutorialUI/1.png" type="Texture" id=1]
+[ext_resource path="res://app/objects/easyRead Tutorial.gd" type="Script" id=2]
+
+[node name="easyRead Tutorial" type="Sprite"]
+visible = false
+position = Vector2( 640, 353 )
+z_index = 999
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

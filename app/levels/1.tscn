@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://app/objects/entities/easyRead Tutorial.tscn" type="PackedScene" id=3]
 [ext_resource path="res://app/assets/audio/sfx/potionPickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://app/assets/sprites/tutorialUI/1.png" type="Texture" id=7]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
@@ -11,6 +13,7 @@
 [ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 [ext_resource path="res://app/objects/gameHandler/mouseController.tscn" type="PackedScene" id=15]
 [ext_resource path="res://app/objects/gameHandler/turnController.tscn" type="PackedScene" id=16]
+
 
 [sub_resource type="TileSet" id=1]
 
@@ -51,6 +54,12 @@ z_index = -1
 tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0 )
+
+[node name="easyRead Tutorial" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 640, 355 )
+z_index = 999
+texture = ExtResource( 7 )
 
 [node name="actors" type="Node" parent="."]
 

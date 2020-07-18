@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 [ext_resource path="res://app/objects/gameHandler/mouseController.tscn" type="PackedScene" id=15]
 [ext_resource path="res://app/objects/gameHandler/turnController.tscn" type="PackedScene" id=16]
+[ext_resource path="res://app/objects/easyRead Tutorial.tscn" type="PackedScene" id=17]
+[ext_resource path="res://app/assets/sprites/tutorialUI/17.png" type="Texture" id=18]
 
 [sub_resource type="TileSet" id=1]
 
@@ -132,6 +134,7 @@ position = Vector2( 768, 320 )
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -150,3 +153,6 @@ pitch_scale = 0.9
 [node name="mouseController" parent="." instance=ExtResource( 15 )]
 
 [node name="turnController" parent="." instance=ExtResource( 16 )]
+
+[node name="easyRead Tutorial" parent="." instance=ExtResource( 17 )]
+texture = ExtResource( 18 )

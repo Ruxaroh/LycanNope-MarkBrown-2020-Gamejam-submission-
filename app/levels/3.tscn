@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://app/assets/audio/sfx/potionPickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://app/assets/sprites/ui/Help9.png" type="Texture" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://app/objects/entities/easyRead Tutorial.tscn" type="PackedScene" id=7]
+[ext_resource path="res://app/assets/sprites/tutorialUI/3.png" type="Texture" id=8]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
@@ -13,6 +15,7 @@
 [ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 [ext_resource path="res://app/objects/gameHandler/mouseController.tscn" type="PackedScene" id=15]
 [ext_resource path="res://app/objects/gameHandler/turnController.tscn" type="PackedScene" id=16]
+
 
 [sub_resource type="TileSet" id=1]
 
@@ -76,6 +79,7 @@ npcType = 1
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -94,3 +98,6 @@ pitch_scale = 0.9
 [node name="mouseController" parent="." instance=ExtResource( 15 )]
 
 [node name="turnController" parent="." instance=ExtResource( 16 )]
+
+[node name="easyRead Tutorial" parent="." instance=ExtResource( 7 )]
+texture = ExtResource( 8 )

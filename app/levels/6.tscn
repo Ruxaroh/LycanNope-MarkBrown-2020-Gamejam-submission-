@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://app/objects/gameHandler/grid.gd" type="Script" id=1]
 [ext_resource path="res://app/objects/entities/player.tscn" type="PackedScene" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://app/objects/entities/glass.tscn" type="PackedScene" id=5]
 [ext_resource path="res://app/objects/gameHandler/backgroundTiles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://app/assets/sprites/ui/Help5.png" type="Texture" id=7]
+[ext_resource path="res://app/objects/easyRead Tutorial.tscn" type="PackedScene" id=8]
 [ext_resource path="res://app/assets/sprites/tiles/dungeonFloor1.png" type="Texture" id=9]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight1.png" type="Texture" id=10]
 [ext_resource path="res://app/assets/sprites/ui/highlights/highlight0.png" type="Texture" id=11]
+[ext_resource path="res://app/assets/sprites/tutorialUI/6.png" type="Texture" id=12]
 [ext_resource path="res://app/objects/entities/stairs.tscn" type="PackedScene" id=13]
 [ext_resource path="res://app/assets/sprites/ui/gameOver.png" type="Texture" id=14]
 [ext_resource path="res://app/objects/gameHandler/mouseController.tscn" type="PackedScene" id=15]
@@ -75,6 +77,7 @@ position = Vector2( 832, 320 )
 visible = false
 position = Vector2( -64, 0 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -97,3 +100,6 @@ pitch_scale = 0.9
 [node name="Help5" type="Sprite" parent="."]
 position = Vector2( 504, 255 )
 texture = ExtResource( 7 )
+
+[node name="easyRead Tutorial" parent="." instance=ExtResource( 8 )]
+texture = ExtResource( 12 )
